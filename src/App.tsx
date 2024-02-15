@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { Button, Container, Row } from "react-bootstrap";
+import { Button, Col, Container, Row } from "react-bootstrap";
 import img from "./images/image.png";
 
 function App(): JSX.Element {
@@ -13,27 +13,29 @@ function App(): JSX.Element {
                 Edit <code>src/App.tsx</code> and save. This page will
                 automatically reload. Hello World
             </p>
-            <header className="App-header"> A new header?</header>
+            <h1 className="App-header"> A new header?</h1>
             <Container>
                 <Row>
-                    <div className="rectangle" />
-                    <p>Wow a list and a button!</p>
-                    <Button onClick={() => console.log("Hello World!")}>
-                        Log Hello World
-                    </Button>
-                    <ul>
-                        <li>list</li>
-                        <li>with</li>
-                        <li>3 elements</li>
-                    </ul>
-                </Row>
-                <Row>
-                    <div className="rectangle" />
-                    <p>Is that a image?</p>
-                    <img
-                        src={img}
-                        alt="I can't believe that this is an image"
-                    />
+                    <Col>
+                        <div className="rectangle" />
+                        <p>Wow a list and a button!</p>
+                        <Button onClick={() => console.log("Hello World!")}>
+                            Log Hello World
+                        </Button>
+                        <ul>
+                            <li>list</li>
+                            <li>with</li>
+                            <li>3 elements</li>
+                        </ul>
+                    </Col>
+                    <Col>
+                        <div className="rectangle" />
+                        <p>Is that a image?</p>
+                        <img
+                            src={img}
+                            alt="I can't believe that this is an image"
+                        />
+                    </Col>
                 </Row>
             </Container>
         </div>
