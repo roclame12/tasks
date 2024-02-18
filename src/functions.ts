@@ -23,15 +23,13 @@ export function add3(first: number, second: number, third: number): number {
  * Consumes a string and produces the same string in UPPERCASE and with an exclamation
  * mark added to the end.
  */
-export function shout(message: string): string {return message.toUpperCase();}
+export function shout(message: string): string {return message.toUpperCase() + "!";}
 
 /**
  * Consumes a string (a message) and returns a boolean if the string ends in a question
  * mark. Do not use an `if` statement in solving this question.
  */
-export function isQuestion(message: string): boolean {
-    return true;
-}
+export function isQuestion(message: string): boolean {return message[message.length - 1] === "?";}
 
 /**
  * Consumes a word (a string) and returns either `true`, `false`, or `null`. If the string
@@ -39,5 +37,8 @@ export function isQuestion(message: string): boolean {
  * upper or lower case), then return `false`. Otherwise, return `null`.
  */
 export function convertYesNo(word: string): boolean | null {
-    return true;
+    word = word.toLowerCase();
+    if (word === "yes") {return true;}
+    else if (word == "no") {return false;} 
+    else {return null;}
 }
