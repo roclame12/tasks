@@ -3,7 +3,9 @@
  * using this formula:
  *      C = (F - 32) * 5/9
  */
-export function fahrenheitToCelius(temperature: number): number {return ((temperature - 32) * 5) / 9;}
+export function fahrenheitToCelius(temperature: number): number {
+    return ((temperature - 32) * 5) / 9;
+}
 
 /**
  * Consumes three numbers and produces their sum. BUT you should only add a number
@@ -14,7 +16,9 @@ export function add3(first: number, second: number, third: number): number {
     let sum = 0;
 
     for (let i = 0; i < numbers.length; i++) {
-        if (numbers[i] > 0) {sum += numbers[i];}
+        if (numbers[i] > 0) {
+            sum += numbers[i];
+        }
     }
     return sum;
 }
@@ -23,13 +27,17 @@ export function add3(first: number, second: number, third: number): number {
  * Consumes a string and produces the same string in UPPERCASE and with an exclamation
  * mark added to the end.
  */
-export function shout(message: string): string {return message.toUpperCase() + "!";}
+export function shout(message: string): string {
+    return message.toUpperCase() + "!";
+}
 
 /**
  * Consumes a string (a message) and returns a boolean if the string ends in a question
  * mark. Do not use an `if` statement in solving this question.
  */
-export function isQuestion(message: string): boolean {return message[message.length - 1] === "?";}
+export function isQuestion(message: string): boolean {
+    return message[message.length - 1] === "?";
+}
 
 /**
  * Consumes a word (a string) and returns either `true`, `false`, or `null`. If the string
@@ -38,7 +46,11 @@ export function isQuestion(message: string): boolean {return message[message.len
  */
 export function convertYesNo(word: string): boolean | null {
     word = word.toLowerCase();
-    if (word === "yes") {return true;}
-    else if (word == "no") {return false;} 
-    else {return null;}
+    if (word === "yes") {
+        return true;
+    } else if (word == "no") {
+        return false;
+    } else {
+        return null;
+    }
 }
