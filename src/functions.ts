@@ -3,25 +3,27 @@
  * using this formula:
  *      C = (F - 32) * 5/9
  */
-export function fahrenheitToCelius(temperature: number): number {
-    return 0;
-}
+export function fahrenheitToCelius(temperature: number): number {return ((temperature - 32) * 5) / 9;}
 
 /**
  * Consumes three numbers and produces their sum. BUT you should only add a number
  * if the number is greater than zero.
  */
 export function add3(first: number, second: number, third: number): number {
-    return 0;
+    const numbers: number[] = [first, second, third];
+    let sum = 0;
+
+    for (let i = 0; i < numbers.length; i++) {
+        if (numbers[i] > 0) {sum += numbers[i];}
+    }
+    return sum;
 }
 
 /**
  * Consumes a string and produces the same string in UPPERCASE and with an exclamation
  * mark added to the end.
  */
-export function shout(message: string): string {
-    return "";
-}
+export function shout(message: string): string {return message.toUpperCase();}
 
 /**
  * Consumes a string (a message) and returns a boolean if the string ends in a question
