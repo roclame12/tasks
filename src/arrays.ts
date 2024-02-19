@@ -30,7 +30,7 @@ export function tripleNumbers(numbers: number[]): number[] {
  */
 export function stringsToIntegers(numbers: string[]): number[] {
     return numbers.map((element: string): number =>
-        isNaN(+element) ? 0 : parseInt(element)
+        isNaN(+element) || element === "" ? 0 : parseInt(element)
     );
 }
 
