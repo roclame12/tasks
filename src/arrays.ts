@@ -8,10 +8,10 @@ export function bookEndList(numbers: number[]): number[] {
     let bookEnd: number[] = [];
 
     if (numbers.length > 0) {
-        bookEnd.push(numbers[0]);
+        bookEnd = [...bookEnd, numbers[0]];
     }
     if (numbers.length > 1) {
-        bookEnd.push(numbers[numbers.length - 1]);
+        bookEnd = [...bookEnd, numbers[numbers.length - 1]];
     }
 
     return bookEnd;
