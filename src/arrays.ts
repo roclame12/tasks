@@ -56,7 +56,7 @@ export const removeDollars = (amounts: string[]): number[] => {
  */
 export const shoutIfExclaiming = (messages: string[]): string[] => {
     const noQuestions: string[] = messages.filter(
-        (message: string): boolean => message[message.length - 1] === "?"
+        (message: string): boolean => message[message.length - 1] !== "?"
     );
 
     return noQuestions.map((message: string): string =>
