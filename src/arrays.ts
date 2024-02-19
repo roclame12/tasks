@@ -7,13 +7,10 @@
 export function bookEndList(numbers: number[]): number[] {
     let bookEnd: number[] = [];
 
-    if (numbers.length > 0) {
-        bookEnd = [...bookEnd, numbers[0]];
-    }
     if (numbers.length > 1) {
-        bookEnd = [...bookEnd, numbers[numbers.length - 1]];
-    } else {
-        bookEnd = [...bookEnd, numbers[0]];
+        bookEnd = [numbers[0], numbers[numbers.length - 1]];
+    } else if (numbers.length > 0) {
+        bookEnd = [numbers[0], numbers[0]];
     }
 
     return bookEnd;
