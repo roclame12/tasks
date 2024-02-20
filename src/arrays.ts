@@ -103,7 +103,7 @@ export function makeMath(addends: number[]): string {
             (runningTotal: number, current: number) => (runningTotal += current)
         );
 
-        return (sum as unknown as number) + "=" + addends.join("+");
+        return <number>sum + "=" + addends.join("+");
     }
 }
 
