@@ -42,7 +42,6 @@ export function isCorrect(question: Question, answer: string): boolean {
  * be exactly one of the options.
  */
 export function isValid(question: Question, answer: string): boolean {
-
     if (question.type === "multiple_choice_question") {
         return question.options.includes(answer);
     } else {
@@ -57,7 +56,7 @@ export function isValid(question: Question, answer: string): boolean {
  * name "My First Question" would become "9: My First Q".
  */
 export function toShortForm(question: Question): string {
-    return question.id + ": " + question.name.slice(0, 9);
+    return question.id + ": " + question.name.slice(0, 10);
 }
 
 /**
@@ -84,10 +83,10 @@ export function toMarkdown(question: Question): string {
         for (const option of question.options) {
             printStr += "- " + option + "\n";
         }
+        printStr = printStr.slice(0, printStr.length - 1);
     }
     return printStr;
 }
-
 /**
  * Return a new version of the given question, except the name should now be
  * `newName`.
