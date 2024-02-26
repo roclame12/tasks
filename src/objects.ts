@@ -42,10 +42,9 @@ export function isCorrect(question: Question, answer: string): boolean {
  * be exactly one of the options.
  */
 export function isValid(question: Question, answer: string): boolean {
-    const trimAns = answer.trim().toLowerCase();
 
     if (question.type === "multiple_choice_question") {
-        return question.options.includes(trimAns);
+        return question.options.includes(answer);
     } else {
         return true;
     }
