@@ -109,7 +109,7 @@ id,name,options,points,published
  * Check the unit tests for more examples!
  */
 export function toCSV(questions: Question[]): string {
-    const header = "id, name, options, points, published";
+    const header = "id,name,options,points,published";
     return (
         header +
         questions.reduce(
@@ -117,13 +117,13 @@ export function toCSV(questions: Question[]): string {
                 (pntStr +=
                     "\n" +
                     question.id +
-                    ", " +
+                    "," +
                     question.name +
-                    ", " +
-                    question.options +
-                    ", " +
+                    "," +
+                    question.options.length +
+                    "," +
                     question.points +
-                    ", " +
+                    "," +
                     question.published),
             ""
         )
@@ -291,7 +291,6 @@ export function duplicateQuestionInArray(
     );
     const targetQues = questions[index];
     const newQuestions = [...questions];
-    newQuestions.splice(index, 0, duplicateQuestion(newId, targetQues));
-
+    newQuestions.splice(index + 1, 0, duplicateQuestion(newId, targetQues));
     return newQuestions;
 }
