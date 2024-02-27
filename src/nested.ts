@@ -266,7 +266,7 @@ export function editOption(
         options = [...targetQues.options, newOption];
     } else {
         options = [...targetQues.options];
-        options.splice(targetOptionIndex, 0, newOption);
+        options.splice(targetOptionIndex, 1, newOption);
     }
 
     const newQuestions = [...questions];
