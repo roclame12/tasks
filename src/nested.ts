@@ -1,5 +1,6 @@
 import { Answer } from "./interfaces/answer";
 import { Question, QuestionType } from "./interfaces/question";
+import { makeBlankQuestion, duplicateQuestion } from "./objects";
 
 /**
  * Consumes an array of questions and returns a new array with only the questions
@@ -160,7 +161,16 @@ export function publishAll(questions: Question[]): Question[] {
  * are the same type. They can be any type, as long as they are all the SAME type.
  */
 export function sameType(questions: Question[]): boolean {
-    return false;
+    const typeArr = questions.map(
+        (question: Question): string => question.type
+    );
+    if (
+        typeArr.includes("multiple_choice_question") &&
+        typeArr.includes("short_answer_question")
+    ) {
+        return false;
+    }
+    return true;
 }
 
 /***
@@ -174,7 +184,7 @@ export function addNewQuestion(
     name: string,
     type: QuestionType
 ): Question[] {
-    return [];
+    return [...questions, makeBlankQuestion(id, name, type)];
 }
 
 /***
@@ -187,7 +197,14 @@ export function renameQuestionById(
     targetId: number,
     newName: string
 ): Question[] {
-    return [];
+    const index = questions.findIndex(
+        (question: Question): boolean => question.id === targetId
+    );
+    const targetQues = questions[index];
+    const newQuestions = [...questions];
+    newQuestions.splice(index, 1, { ...targetQues, name: newName });
+
+    return newQuestions;
 }
 
 /***
@@ -202,7 +219,25 @@ export function changeQuestionTypeById(
     targetId: number,
     newQuestionType: QuestionType
 ): Question[] {
-    return [];
+    const index = questions.findIndex(
+        (question: Question): boolean => question.id === targetId
+    );
+    const targetQues = questions[index];
+    const newQuestions = [...questions];
+    if (newQuestionType === "short_answer_question") {
+        newQuestions.splice(index, 1, {
+            ...targetQues,
+            type: newQuestionType,
+            options: []
+        });
+    } else {
+        newQuestions.splice(index, 1, {
+            ...targetQues,
+            type: newQuestionType
+        });
+    }
+
+    return newQuestions;
 }
 
 /**
@@ -221,7 +256,23 @@ export function editOption(
     targetOptionIndex: number,
     newOption: string
 ): Question[] {
-    return [];
+    const index = questions.findIndex(
+        (question: Question): boolean => question.id === targetId
+    );
+
+    const targetQues = questions[index];
+    let options: string[];
+    if (targetOptionIndex === -1) {
+        options = [...targetQues.options, newOption];
+    } else {
+        options = [...targetQues.options];
+        options.splice(targetOptionIndex, 0, newOption);
+    }
+
+    const newQuestions = [...questions];
+    newQuestions.splice(index, 1, { ...targetQues, options: options });
+
+    return newQuestions;
 }
 
 /***
@@ -235,5 +286,12 @@ export function duplicateQuestionInArray(
     targetId: number,
     newId: number
 ): Question[] {
-    return [];
+    const index = questions.findIndex(
+        (question: Question): boolean => question.id === targetId
+    );
+    const targetQues = questions[index];
+    const newQuestions = [...questions];
+    newQuestions.splice(index, 0, duplicateQuestion(newId, targetQues));
+
+    return newQuestions;
 }
