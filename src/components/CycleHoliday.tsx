@@ -2,32 +2,32 @@ import React, { useState } from "react";
 import { Button, Row, Col } from "react-bootstrap";
 
 type Holiday =
-    | "Cristmas: 🧑‍🎄"
-    | "Halloween: 👺"
-    | "Independence Day: 💥"
-    | "Labor Day: ☀️"
-    | "Thanksgiving: 🇹🇷";
+    | "Holiday: 🧑‍🎄"
+    | "Holiday: 👺"
+    | "Holiday: 💥"
+    | "Holiday: ☀️"
+    | "Holiday: 🇹🇷";
 
 const BY_DATE: Record<Holiday, Holiday> = {
-    "Independence Day: 💥": "Labor Day: ☀️",
-    "Labor Day: ☀️": "Halloween: 👺",
-    "Halloween: 👺": "Thanksgiving: 🇹🇷",
-    "Thanksgiving: 🇹🇷": "Cristmas: 🧑‍🎄",
-    "Cristmas: 🧑‍🎄": "Labor Day: ☀️"
+    "Holiday: 💥": "Holiday: ☀️",
+    "Holiday: ☀️": "Holiday: 👺",
+    "Holiday: 👺": "Holiday: 🇹🇷",
+    "Holiday: 🇹🇷": "Holiday: 🧑‍🎄",
+    "Holiday: 🧑‍🎄": "Holiday: 💥"
 };
 const BY_ALPHABET: Record<Holiday, Holiday> = {
-    "Cristmas: 🧑‍🎄": "Halloween: 👺",
-    "Halloween: 👺": "Independence Day: 💥",
-    "Independence Day: 💥": "Labor Day: ☀️",
-    "Labor Day: ☀️": "Thanksgiving: 🇹🇷",
-    "Thanksgiving: 🇹🇷": "Cristmas: 🧑‍🎄"
+    "Holiday: 🧑‍🎄": "Holiday: 👺",
+    "Holiday: 👺": "Holiday: 💥",
+    "Holiday: 💥": "Holiday: ☀️",
+    "Holiday: ☀️": "Holiday: 🇹🇷",
+    "Holiday: 🇹🇷": "Holiday: 🧑‍🎄"
 };
 
 export function CycleHoliday(): JSX.Element {
-    const [holiday, setHoliday] = useState<Holiday>("Cristmas: 🧑‍🎄");
+    const [holiday, setHoliday] = useState<Holiday>("Holiday: ☀️");
     return (
         <Col>
-            <h1>{holiday}</h1>
+            {holiday}
             <Row>
                 <Col>
                     <Button onClick={() => setHoliday(BY_DATE[holiday])}>

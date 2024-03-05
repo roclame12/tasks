@@ -16,6 +16,7 @@ export function StartAttempt(): JSX.Element {
 
     return (
         <div>
+            {attempts}
             {attempts > 0 && quizInProgress === false ? (
                 <Button onClick={startQuiz}>Start Quiz</Button>
             ) : (
