@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button } from "react-bootstrap";
+import { Button, Row, Col } from "react-bootstrap";
 
 /**
  * Here is a helper function you *must* use to "roll" your die.
@@ -12,5 +12,30 @@ export function d6(): number {
 }
 
 export function TwoDice(): JSX.Element {
-    return <div>Two Dice</div>;
+    const [lDie, setLDie] = useState<number>(1);
+    const [rDie, setRDie] = useState<number>(2);
+
+    return (
+        <Col>
+            <Row>
+                {rDie === 1 && lDie === 1 ? (
+                    <h1>Lose</h1>
+                ) : rDie === lDie ? (
+                    <h1>Win</h1>
+                ) : (
+                    <h1></h1>
+                )}
+            </Row>
+            <Row>
+                <Col>
+                    <span data-testid="left-die">{lDie}</span>
+                    <span data-testid="right-die">{rDie}</span>
+                </Col>
+            </Row>
+            <Row>
+                <Button onClick={() => setLDie(d6)}>Roll Left </Button>
+                <Button onClick={() => setRDie(d6)}>Roll Right </Button>
+            </Row>
+        </Col>
+    );
 }
