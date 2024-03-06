@@ -1,4 +1,4 @@
-import React, { Dispatch, useState } from "react";
+import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 
 interface dhProps {
