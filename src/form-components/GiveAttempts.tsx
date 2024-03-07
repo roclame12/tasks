@@ -22,7 +22,10 @@ export function GiveAttempts(): JSX.Element {
             </Form.Group>
             <Row>
                 <Col>
-                    <Button onClick={() => setAttempts(attempts - 1)}>
+                    <Button
+                        onClick={() => setAttempts(attempts - 1)}
+                        disabled={attempts < 1}
+                    >
                         use
                     </Button>
                     <Button onClick={() => setAttempts(addAttempts + attempts)}>
