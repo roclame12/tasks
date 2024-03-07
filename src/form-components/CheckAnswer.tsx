@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Col, Form, Row } from "react-bootstrap";
+import { Col, Form } from "react-bootstrap";
 
-type InputEvent = React.ChangeEvent<HTMLInputElement>;
+type inputEvent = React.ChangeEvent<HTMLInputElement>;
 
 export function CheckAnswer({
     expectedAnswer
@@ -10,7 +10,7 @@ export function CheckAnswer({
 }): JSX.Element {
     const [userAnswer, setUserAnswer] = useState<string>("");
 
-    function updateAnswer(event: React.ChangeEvent<HTMLInputElement>) {
+    function updateAnswer(event: inputEvent) {
         setUserAnswer(event.target.value);
     }
 
